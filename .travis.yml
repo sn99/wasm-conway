@@ -42,13 +42,12 @@ matrix:
       install:
         - *INSTALL_NODE_VIA_NVM
       script:
-        - cd ..
         - mkdir -p docs
         - rm -rf ./docs/*
         - cd wasm-conway && wasm-pack build
         - cd www && npm install
         - npm run build
-        - mv ./dist/* ../../docs
+        - mv ./dist/* ../docs
       deploy:
         provider: pages
         skip-cleanup: true
