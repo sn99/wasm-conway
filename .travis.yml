@@ -21,20 +21,6 @@ script:
 matrix:
   include:
 
-    - name: Tests
-      env: RUST_BACKTRACE=1
-      rust: stable
-      addons:
-        firefox: latest
-        chrome: stable
-      before_script:
-        - curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh -s -- -f
-      install:
-        - *INSTALL_NODE_VIA_NVM
-      script:
-        - cargo test --all
-        - cargo test --all --target wasm32-unknown-unknown
-
     - name: Page
       rust: stable
       before_script:
@@ -54,6 +40,21 @@ matrix:
         github-token: $GITHUB_TOKEN
         local-dir: docs
         keep-history: false
+
+allow_failures:
+  - name: Tests
+    env: RUST_BACKTRACE=1
+    rust: stable
+    addons:
+      firefox: latest
+      chrome: stable
+    before_script:
+      - curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh -s -- -f
+    install:
+      - *INSTALL_NODE_VIA_NVM
+    script:
+      - cargo test --all
+      - cargo test --all --target wasm32-unknown-unknown
 
 
 notifications:
