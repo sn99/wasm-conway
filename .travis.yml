@@ -42,9 +42,10 @@ matrix:
       install:
         - *INSTALL_NODE_VIA_NVM
       script:
+        - cd ..
         - mkdir -p docs
         - rm -rf ./docs/*
-        - wasm-pack build
+        - cd wasm-conway && wasm-pack build
         - cd www && npm install
         - npm run build
         - mv ./dist/* ../../docs
