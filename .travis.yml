@@ -44,7 +44,7 @@ matrix:
       script:
         - mkdir -p docs
         - rm -rf ./docs/*
-        - cd wasm-conway && wasm-pack build
+        - wasm-pack build
         - cd www && npm install
         - npm run build
         - mv ./dist/* ../docs
