@@ -31,6 +31,6 @@
     "webpack": "^4.29.3",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^4.11.1",
-    "copy-webpack-plugin": "^5.0.0"
+    "copy-webpack-plugin": "^5.1.2"
   }
 }
